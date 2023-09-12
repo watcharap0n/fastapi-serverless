@@ -7,12 +7,13 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
+      - echo ACCOUNT ID $AWS_ACCOUNT_ID $AWS_DEFAULT_REGION
       - aws --version
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
       - echo Building Docker image...
-      - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:$CODEBUILD_RESOLVED_SOURCE_VERSION .
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-cdk-app:$CODEBUILD_RESOLVED_SOURCE_VERSION .
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-cdk-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
 artifacts:
   files: []
