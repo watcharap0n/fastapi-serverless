@@ -15,4 +15,4 @@ COPY . .
 
 WORKDIR ../
 
-CMD ["uvicorn", "server.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "server.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80"]
