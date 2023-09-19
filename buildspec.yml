@@ -13,7 +13,8 @@ phases:
     commands:
       - echo Building Docker image...
       - echo CODEBUILD_RESOLVED_SOURCE_VERSION $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
-      - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:$CODEBUILD_RESOLVED_SOURCE_VERSION .
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker build -t fastapi-cdk-app .
+      - docker tag fastapi-cdk-app:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:latest
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:latest
 artifacts:
   files: []
