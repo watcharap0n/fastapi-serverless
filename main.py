@@ -5,4 +5,4 @@ app = FastAPI()
 
 @app.get('/')
 async def index():
-    return {'message': 'Hello AWS ECR'}
+    return {'message': 'Hello AWS EC2'}
