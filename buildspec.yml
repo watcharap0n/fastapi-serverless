@@ -16,4 +16,4 @@ phases:
       - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:latest .
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fastapi-cdk-app:latest
 artifacts:
-  files: []
+  files: imagedefinition.json
